@@ -78,7 +78,7 @@ function login(){
 		// echo "Inside About to run query";
 
 		$query = "SELECT * FROM users WHERE email='$email' AND password='$password' LIMIT 1";
-		// echo "Query :" . $query;
+		echo "Query :" . $query;
 // exit(0);
 		$results = mysqli_query($db, $query);
 

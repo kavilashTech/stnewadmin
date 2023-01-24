@@ -3,13 +3,15 @@ include 'includes/header.php';
 include 'includes/menu.php';
 include 'includes/sidenav.php';
 
+//Explitly set Level to room. Field default is 0 zero.
+$roomlevel = 1;
 
 if (isset($_GET['edit'])) {
     $id = $_GET['edit'];
     $update = true;
 
 
-    $selectSQL = "SELECT * FROM amenities WHERE level=0 and id=" . $id;
+    $selectSQL = "SELECT * FROM amenities WHERE level=" . $roomlevel . " and id=" . $id;
     // echo $selectSQL;
     // exit(0);
     $record = mysqli_query($connection, $selectSQL);
@@ -85,10 +87,10 @@ if (isset($_POST['Add'])) {
 
     // $showindetail = 
 
-    //Explitly set Level to room. Field default is 0 zero.
-    $level = 1;
+    
+    
 
-    $insertSql = "INSERT into amenities (name, level, icon, show_in_detail, type ) VALUES ('" . $amenityname .  "'," . $level .  ", '" . $icon . "'," . $showindetail . ", " . $type . ");";
+    $insertSql = "INSERT into amenities (name, level, icon, show_in_detail, type ) VALUES ('" . $amenityname .  "'," . $roomlevel .  ", '" . $icon . "'," . $showindetail . ", " . $type . ");";
 
     // echo $insertSql;
     // exit(0);

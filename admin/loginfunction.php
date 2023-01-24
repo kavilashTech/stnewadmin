@@ -12,8 +12,8 @@ $password="";
 // session_start();
 
 // connect to database
-$db = mysqli_connect('localhost', 'root', '', 'stnewversion');
-
+// $db = mysqli_connect('localhost', 'root', '', 'stnewversion');
+$db = $connection;
 // variable declaration
 // $username = "";
 $email    = "";

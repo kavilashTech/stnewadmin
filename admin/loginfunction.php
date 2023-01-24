@@ -87,18 +87,15 @@ function login(){
 			// exit(0);
 			// check if user is admin or user
 			$logged_in_user = mysqli_fetch_assoc($results);
-			if ($logged_in_user['user_role'] == 2) {
+			if ($logged_in_user['user_role'] == 4) {
 
 				$_SESSION['user'] = $logged_in_user;
 				$_SESSION['success']  = "You are now logged in";
 				header('location: dashboard.php');		  
 			}
-			// else{
-			// 	$_SESSION['user'] = $logged_in_user;
-			// 	$_SESSION['success']  = "You are now logged in";
-
-			// 	header('location: index.php');
-			// }
+			else{
+				array_push($errors, "You don't have Admin Rights.");
+			}
 		}else {
 			array_push($errors, "Wrong username/password combination");
 			// display_error();

@@ -2161,6 +2161,12 @@ progress {
 
 /* login page */
 
+.label-for-input{
+  font-size: 12px;
+  color: grey;
+  padding-left: 5px;
+}
+
 .main-content{
 	width: 50%;
 	border-radius: 20px;

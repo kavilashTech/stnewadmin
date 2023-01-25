@@ -152,86 +152,86 @@ if (!isset($_REQUEST["txtSubmit"])) {
                                 <input type="hidden" name="txtflag" value="<?PHP echo $flag ?>">
                                 <div class="row mb-3">
                                     <div class="col-md-8">
-                                        <div class="form-floating mb-3 mb-md-0">
+                                        <!-- <div class="form-floating mb-3 mb-md-0"> -->
                                             <input class="form-control" id="inputCompanyName" name="inputCompanyName" type="text" placeholder="Enter Company name" value="<?php echo $companyName ?>" required />
-                                            <label for="inputCompanyName">Company Name</label>
-                                        </div>
+                                            <label class="label-for-input" for="inputCompanyName">Company Name</label>
+                                        <!-- </div> -->
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-md-6">
-                                        <div class="form-floating">
+                                        <!-- <div class="form-floating"> -->
                                             <input class="form-control" id="inputAddress1" name="inputAddress1" type="text" placeholder="Enter Address" value="<?php echo $address1 ?>" required />
-                                            <label for="inputAddress1">Address 1</label>
-                                        </div>
+                                            <label class="label-for-input"  for="inputAddress1">Address 1</label>
+                                        <!-- </div> -->
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-floating">
+                                        <!-- <div class="form-floating"> -->
                                             <input class="form-control" id="inputAddress2" name="inputAddress2" type="text" placeholder="Enter Address" value="<?php echo $address2 ?>" />
-                                            <label for="inputAddress2">Address 2</label>
-                                        </div>
+                                            <label  class="label-for-input" for="inputAddress2">Address 2</label>
+                                        <!-- </div> -->
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-md-4">
-                                        <div class="form-floating">
+                                        <!-- <div class="form-floating"> -->
                                             <input class="form-control" id="inputState" name="inputState" type="text" placeholder="Enter State" value="<?php echo $state ?>" required />
-                                            <label for="inputState">State</label>
-                                        </div>
+                                            <label  class="label-for-input" for="inputState">State</label>
+                                        <!-- </div> -->
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-floating">
+                                        <!-- <div class="form-floating"> -->
                                             <input class="form-control" id="inputCity" name="inputCity" type="text" placeholder="Enter City" value="<?php echo $city ?>" required />
-                                            <label for="inputCity">City</label>
-                                        </div>
+                                            <label  class="label-for-input" for="inputCity">City</label>
+                                        <!-- </div> -->
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-floating">
+                                        <!-- <div class="form-floating"> -->
                                             <input class="form-control" id="inputPincode" name="inputPincode" type="text" placeholder="Enter Pincode" value="<?php echo $pincode ?>" required />
-                                            <label for="inputPincode">Pincode</label>
-                                        </div>
+                                            <label  class="label-for-input" for="inputPincode">Pincode</label>
+                                        <!-- </div> -->
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-md-6">
-                                        <div class="form-floating mb-3">
+                                        <!-- <div class="form-floating mb-3"> -->
                                             <input class="form-control" id="inputEmail1" name="inputEmail1" type="email" placeholder="name@example.com" value="<?php echo $email1 ?>" required />
-                                            <label for="inputEmail1">Email address</label>
-                                        </div>
+                                            <label  class="label-for-input" for="inputEmail1">Email address</label>
+                                        <!-- </div> -->
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-floating mb-3">
+                                        <!-- <div class="form-floating mb-3"> -->
                                             <input class="form-control" id="inputEmail2" name="inputEmail2" type="email" placeholder="name@example.com" value="<?php echo $email2 ?>" />
-                                            <label for="inputEmail2">Email address 2</label>
-                                        </div>
+                                            <label  class="label-for-input" for="inputEmail2">Email address 2</label>
+                                        <!-- </div> -->
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-md-6">
-                                        <div class="form-floating mb-3 mb-md-0">
+                                        <!-- <div class="form-floating mb-3 mb-md-0"> -->
                                             <input class="form-control" id="inputMobile1" name="inputMobile1" type="text" placeholder="Enter Mobile" value="<?php echo $mobile1 ?>" required />
-                                            <label for="inputMobile1">Mobile</label>
-                                        </div>
+                                            <label  class="label-for-input" for="inputMobile1">Mobile</label>
+                                        <!-- </div> -->
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-floating mb-3 mb-md-0">
+                                        <!-- <div class="form-floating mb-3 mb-md-0"> -->
                                             <input class="form-control" id="inputMobile2" name="inputMobile2" type="text" placeholder="Enter Alternate Mobile" value="<?php echo $mobile2 ?>" />
-                                            <label for="inputMobile2">Mobile 2</label>
-                                        </div>
+                                            <label  class="label-for-input" for="inputMobile2">Mobile 2</label>
+                                        <!-- </div> -->
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-md-6">
-                                        <div class="form-floating mb-3 mb-md-0">
+                                        <!-- <div class="form-floating mb-3 mb-md-0"> -->
                                             <input class="form-control" id="inputPan" name="inputPan" type="text" placeholder="Enter PAN No" value="<?php echo $pan ?>" />
-                                            <label for="inputPan">PAN</label>
-                                        </div>
+                                            <label  class="label-for-input" for="inputPan">PAN</label>
+                                        <!-- </div> -->
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-floating mb-3 mb-md-0">
+                                        <!-- <div class="form-floating mb-3 mb-md-0"> -->
                                             <input class="form-control" id="inputGst" name="inputGst" type="text" placeholder="Enter GST No" value="<?php echo $gst ?>" />
-                                            <label for="inputGst">GST</label>
-                                        </div>
+                                            <label  class="label-for-input" for="inputGst">GST</label>
+                                        <!-- </div> -->
                                     </div>
                                 </div>
                                 <div class="mt-4 mb-0 ">
@@ -264,7 +264,9 @@ if (!isset($_REQUEST["txtSubmit"])) {
 
     // echo '<script>document.getElementById("error").innerHTML = "' . $flag . '";</script>';
     ?>
-
+<script type="application/javascript">
+    $('#success').delay(5000).fadeOut(300);
+</script>
     <!-- footer -->
     <?php
     include 'includes/footer.php';

@@ -4,36 +4,18 @@
             <div class="sb-sidenav-menu">
                 <div class="nav">
                     <div class="sb-sidenav-menu-heading">Core</div>
-                    <a class="nav-link" href="dashboard.php">
+                    <a class="nav-link" href="ownerdashboard.php">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Dashboard
                     </a>
-                    <a class="nav-link" href="company.php">
+                    <a class="nav-link" href="ownerstaytypes.php">
                         <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                        Company Information
+                        Staytypes
                     </a>
-                    <!-- <a class="nav-link" href="masters.php">
+
+                    <a class="nav-link" href="">
                         <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                        Masters
-                    </a> -->
-                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseMasters" aria-expanded="false" aria-controls="collapseMasters">
-                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                        Masters
-                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                    </a>
-                    <div class="collapse" id="collapseMasters" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                        <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="staytypes.php">Stay Types</a>
-                            <a class="nav-link" href="locations.php">Location</a>
-                        </nav>
-                    </div>
-                    <!-- <a class="nav-link" href="amenities.php">
-                        <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                        Amenities
-                    </a> -->
-                    <a class="nav-link" href="preferences.php">
-                        <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                        Preferences
+                        Vacancy Update
                     </a>
                     <!-- <div class="sb-sidenav-menu-heading">Masters</div>
                     <a class="nav-link" href="#">
@@ -48,7 +30,7 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                         Exclusivity
                     </a> -->
-                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseAmenities" aria-expanded="false" aria-controls="collapseAmenities">
+                    <!-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseAmenities" aria-expanded="false" aria-controls="collapseAmenities">
                         <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                         Amenities
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -58,7 +40,7 @@
                             <a class="nav-link" href="propertyamenities.php">Property Level</a>
                             <a class="nav-link" href="roomamenities.php">Room Level</a>
                         </nav>
-                    </div>
+                    </div> -->
                     <!-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                         <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                         Pages
@@ -103,7 +85,7 @@
             </div>
             <div class="sb-sidenav-footer">
                 <div class="small">Logged in as:</div>
-                Stayteller Admin
+                Stayteller Owner
             </div>
         </nav>
     </div>

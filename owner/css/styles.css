@@ -352,7 +352,12 @@ textarea {
   font-size: inherit;
   line-height: inherit;
 }
-
+/* time control settings */
+input[type="time" i]{
+  margin:0;
+  border:none;
+  color:red;
+}
 button,
 select {
   text-transform: none;
@@ -2222,6 +2227,9 @@ progress {
 form{
 	padding: 0 2em;
 }
+.txtMonTime{
+  color: red !important;
+}
 
 .login-form-text {
   margin-top: 0.25rem;
@@ -2301,6 +2309,13 @@ form{
   padding:5px;
   font-size:16px;
   /* text-align: center; */
+}
+.text{
+  border-width: 1px!important;
+  border-color: rgb(160, 160, 160)!important;
+  padding:5px;
+  font-size:16px;
+  color:#000;
 }
 .btn-crud {
   font-size: 16px !important;

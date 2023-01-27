@@ -11,6 +11,7 @@ include 'includes/sidenav.php';
 // 	exit(0);
 // }
 
+
 //Initialize variables
 
 $maxImages    = "";
@@ -22,7 +23,10 @@ $flag = "";
 $flashmsg = "";
 
 function getSetting($name){
+
+    global $connection;
     $query = "SELECT * FROM preferences WHERE type=" . $name;
+
 	$result = mysqli_query($connection, $query);
 
 	$value = mysqli_fetch_assoc($result);
@@ -30,9 +34,9 @@ function getSetting($name){
 }
 
 function getUserById($id){
-	global $db;
+	global $connection;
 	$query = "SELECT * FROM users WHERE id=" . $id;
-	$result = mysqli_query($db, $query);
+	$result = mysqli_query($connection, $query);
 
 	$user = mysqli_fetch_assoc($result);
 	return $user;
@@ -45,12 +49,14 @@ if (!isset($_REQUEST["txtSubmit"])) {
 
     $verifySQL = "select * from preferences";
 
-    $companyRow = mysqli_query($connection, $verifySQL);
+    $preferencesRow = mysqli_query($connection, $verifySQL);
 
-    if (mysqli_num_rows($companyRow) > 0) {
+    if (mysqli_num_rows($preferencesRow) > 0) {
         //Record Exists - UPDATE
+        // echo("UPDATE MODE");
+        // exit(0);
 
-        $result = mysqli_fetch_assoc($companyRow);
+        $result = mysqli_fetch_assoc($preferencesRow);
 
         $maxImages    = $result['max_images'];
         $maxVideos    =  $result['max_videos'];
@@ -87,8 +93,9 @@ if (!isset($_REQUEST["txtSubmit"])) {
         //INSERT
         // echo "<script>alert('Insert Mode');</script>";
         // No data in Database - Create Record
-        $insertSQL = 'INSERT INTO `preferences`(`max_images`, `max_videos`, `fb_link`, `insta_link`) VALUES (' . $maxImages . ',' . $maxVideos . ', "' . $fbLink . '", "' . $instaLink. '")';
-
+        $insertSQL = 'INSERT INTO `preferences`(`max_images`, `max_videos`, `fb_link`, `insta_link`) VALUES (' . $maxImages . ',' . $maxVideos . ', "' . $fbLink . '", "' . $instaLink . '")';
+// echo $insertSQL;
+// exit(0);
         if (mysqli_query($connection, $insertSQL) == TRUE) {
             $flashmsg = "SI"; //Successful Insert
 
@@ -98,9 +105,11 @@ if (!isset($_REQUEST["txtSubmit"])) {
         }
     } else if ($flag == 'UPDATE') {
         //UPDATE
-        // echo "<script>alert('Update Mode');</script>";
+        //  echo "<script>alert('Update Mode');</script>";
 
         $updateSQL = "UPDATE preferences SET max_images=" . $maxImages . ", max_videos=" . $maxVideos . ", fb_link='" . $fbLink . "', insta_link='" . $instaLink .  "'";
+        // echo $updateSQL;
+        // exit(0);
 
         if (mysqli_query($connection, $updateSQL) == TRUE) {
             //Updated Successfully
@@ -134,7 +143,7 @@ if (!isset($_REQUEST["txtSubmit"])) {
                             <h3 class="text-left font-weight-light my-4">Preferences</h3>
                         </div>
                         <div class="card-body">
-                            <form id="form1" action="<?php $_PHP_SELF ?>">
+                            <form id="form1" method="POST" action="<?php $_PHP_SELF ?>">
                                 <input type="hidden" name="txtflag" value="<?PHP echo $flag ?>">
 
                                 <div class="row mb-3">

@@ -20,7 +20,7 @@ $db = $connection;
 $email    = "";
 $errors   = array(); 
 
-echo "flag1";
+// echo "flag1";
 
 // return user array from their id
 function getUserById($id){
@@ -58,7 +58,7 @@ if (isset($_POST['submit'])) {
 // LOGIN USER
 function login(){
 	global $db, $email, $errors;
-echo "<br>inside Login";
+// echo "<br>inside Login";
 	// grap form values
 	$email = e($_POST['email']);
 	$password = $_POST['password'];
@@ -76,15 +76,15 @@ echo "<br>inside Login";
 	// attempt login if no errors on form
 	if (count($errors) == 0) {
 		$password = md5($password);
-		echo "Inside About to run query";
+		// echo "Inside About to run query";
 
 		$query = "SELECT * FROM users WHERE email='$email' AND password='$password' LIMIT 1";
-		echo "Query :" . $query;
+		// echo "Query :" . $query;
 // exit(0);
 		$results = mysqli_query($db, $query);
 
 		if (mysqli_num_rows($results) == 1) { // user found
-			echo "Flag 4";
+			// echo "Flag 4";
 			// exit(0);
 			// check if user is admin or user
 			$logged_in_user = mysqli_fetch_assoc($results);

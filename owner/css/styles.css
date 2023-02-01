@@ -2166,6 +2166,10 @@ progress {
 
 /* login page */
 
+input[type="file" i] {
+  font-size: 12px!important;
+}
+
 .main-content{
 	width: 50%;
 	border-radius: 20px;

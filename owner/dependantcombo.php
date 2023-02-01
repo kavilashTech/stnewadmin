@@ -33,15 +33,16 @@ if (!empty($amenity_id)) {
     if (mysqli_num_rows($query) > 0) {
 
         while ($row = mysqli_fetch_array($query)) {
-?>
+
             }
+            
             echo "<option value='" . $row['id'] . "'>" . $row['name'] . "</option><br>";
-        <?php
+        
         }
     } 
 
 
-}
+
 
 
 // TODO Backup set for Property Level Amenity.
@@ -67,6 +68,7 @@ if (!empty($amenity_id)) {
 $room_amenity_id = !empty($_POST['room_amenity_id']) ? $_POST['room_amenity_id'] : '';
 if (!empty($room_amenity_id)) {
 
+    
     //  echo $query;
     // exit(0);
     $amenityListData = $connection->prepare("SELECT id, name from amenities_list WHERE amenity_id=?");

@@ -234,7 +234,7 @@ if (!isset($_SESSION['user'])) {
                                                                     </div>
                                                                     <div class="col-4">
                                                                         <select class="list-dt" id="cmbAmenityList" name="cmbAmenityList" style="width:100%!important" multiple>
-                                                                            <option value='0' selected>Select Amenity List1...</option>
+                                                                            <option value='0' selected>Select Amenity List...</option>
 
                                                                         </select>
                                                                     </div>

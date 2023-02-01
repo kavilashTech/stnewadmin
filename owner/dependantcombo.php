@@ -27,21 +27,40 @@ if (!empty($location_id)) {
 $amenity_id = !empty($_POST['amenity_id']) ? $_POST['amenity_id'] : '';
 if (!empty($amenity_id)) {
 
-    $query = "";
- 
 
-    $amenityListData = $connection->prepare("SELECT id, name from amenities_list WHERE amenity_id=?");
-    $amenityListData->bind_param('i', $amenity_id);
-    $amenityListData->execute();
-    $result = $amenityListData->get_result();
+    $query = mysqli_query($connection, "SELECT id, name from amenities_list WHERE amenity_id=" . $amenity_id);
 
-    if ($result->num_rows > 0) {
-        echo "<option value=''>Select Amenity List</option>";
-        while ($row = $result->fetch_assoc()) {
+    if (mysqli_num_rows($query) > 0) {
+
+        while ($row = mysqli_fetch_array($query)) {
+?>
+            }
             echo "<option value='" . $row['id'] . "'>" . $row['name'] . "</option><br>";
+        <?php
         }
-    }
+    } 
+
+
 }
+
+
+// TODO Backup set for Property Level Amenity.
+// $amenity_id = !empty($_POST['amenity_id']) ? $_POST['amenity_id'] : '';
+// if (!empty($amenity_id)) {
+
+
+//     $amenityListData = $connection->prepare("SELECT id, name from amenities_list WHERE amenity_id=?");
+//     $amenityListData->bind_param('i', $amenity_id);
+//     $amenityListData->execute();
+//     $result = $amenityListData->get_result();
+
+//     if ($result->num_rows > 0) {
+//         echo "<option value=''>Select Amenity List</option>";
+//         while ($row = $result->fetch_assoc()) {
+//             echo "<option value='" . $row['id'] . "'>" . $row['name'] . "</option><br>";
+//         }
+//     }
+// }
 
 
 //Fetching Room Level Amenity Data
@@ -66,7 +85,7 @@ if (!empty($room_amenity_id)) {
 
 
 
-
+// Adding comment for committing into production
 
 
 // Fetching city data

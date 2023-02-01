@@ -25,15 +25,28 @@ html {
 } */
 
 /*form styles*/
-#msform {
+fieldset {
     text-align: center;
     position: relative;
     margin-top: 20px;
 }
 
-#msform fieldset .form-card {
-    background: white;
-    border: 0 none;
+/* #msform fieldset .form-card {
+    background: rgb(228, 171, 171);
+    border: 1 none;
+    border-radius: 0px;
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+    padding: 20px 40px 30px 40px;
+    box-sizing: border-box;
+    width: 94%;
+    margin: 0 3% 20px 3%; */
+
+    /*stacking fieldsets above each other*/
+    /* position: relative;
+} */
+fieldset .form-card {
+    background: rgb(255, 255, 255);
+    border: 1 none;
     border-radius: 0px;
     box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
     padding: 20px 40px 30px 40px;
@@ -45,7 +58,19 @@ html {
     position: relative;
 }
 
-#msform fieldset {
+/* #msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 20px; */
+
+    /*stacking fieldsets above each other*/
+    /* position: relative;
+} */
+fieldset {
     background: white;
     border: 0 none;
     border-radius: 0.5rem;
@@ -59,16 +84,16 @@ html {
 }
 
 /*Hide all except first fieldset*/
-#msform fieldset:not(:first-of-type) {
+fieldset:not(:first-of-type) {
     display: none;
 }
 
-#msform fieldset .form-card {
+fieldset .form-card {
     text-align: left;
     color: #9E9E9E;
 }
 
-#msform input, #msform textarea {
+fieldset input, fieldset textarea {
     padding: 0px 8px 4px 8px;
     border: none;
     border-bottom: 1px solid #ccc;
@@ -83,7 +108,7 @@ html {
     letter-spacing: 1px;
 }
 
-#msform input:focus, #msform textarea:focus {
+fieldset input:focus, fieldset textarea:focus {
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
@@ -94,7 +119,7 @@ html {
 }
 
 /*Blue Buttons*/
-#msform .action-button {
+fieldset .action-button {
     width: 100px;
     background: skyblue;
     font-weight: bold;
@@ -106,12 +131,12 @@ html {
     margin: 10px 5px;
 }
 
-#msform .action-button:hover, #msform .action-button:focus {
+fieldset .action-button:hover, fieldset .action-button:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px skyblue;
 }
 
 /*Previous Buttons*/
-#msform .action-button-previous {
+fieldset .action-button-previous {
     width: 100px;
     background: #616161;
     font-weight: bold;
@@ -123,7 +148,7 @@ html {
     margin: 10px 5px;
 }
 
-#msform .action-button-previous:hover, #msform .action-button-previous:focus {
+fieldset .action-button-previous:hover, fieldset .action-button-previous:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px #616161;
 }
 

@@ -79,33 +79,34 @@ include 'includes/sidenav.php';
                             <tbody>
                                 <?php
                                 // Show only property level amenities
-                                $query = mysqli_query($connection, "select * from `amenities` where level=0");
+                                $query = "select * from `amenities` where level=0";
+                                 $result = mysqli_query($connection, $query);
 
-                                if (mysqli_num_rows($query) > 0) {
+                                if (mysqli_num_rows($result) > 0) {
 
-                                while ($row = mysqli_fetch_array($query)) {
+                                    while ($row = mysqli_fetch_array($result)) {
                                 ?>
-                                    <tr>
-                                        <!-- <td><?php //echo $row['id']; 
-                                                    ?></td> -->
-                                        <td><?php echo $row['name']; ?></td>
-                                        <td><?php echo ($row['show_in_detail'] == 1 ? 'Yes' : 'No'); ?></td>
-                                        <td><?php echo ($row['type'] == 0 ? 'Single' : 'Multiple'); ?></td>
-                                        <td><img src="assets/img/icons8-image-96.png" width="40px"></td>
-                                        <!-- <td><?php //echo $row['icon']; 
-                                                    ?></td> -->
-                                        <td>
-                                            <a href="propertyamenities-edit.php?edit=<?php echo $row['id']; ?>" class="btn btn-status-positive btn-rounded btn-icon" title="Edit"><i class="fas fa-sm fa-edit"></i></a>
-                                            <a href="propertyamenities-list.php?id=<?php echo $row['id']; ?>" class="btn btn-primary btn-rounded btn-icon" title="Amenities List"><i class="fas fa-sm fa-list"></i></a>
-                                            <a href="#del<?php echo $row['id']; ?>" data-toggle="modal" class="btn btn-danger btn-rounded btn-icon" class="btn btn-status-negative btn-rounded btn-icon" title="Delete"><i class="fas fa-sm fa-times"></i></a>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <!-- <td><?php //echo $row['id']; 
+                                                        ?></td> -->
+                                            <td><?php echo $row['name']; ?></td>
+                                            <td><?php echo ($row['show_in_detail'] == 1 ? 'Yes' : 'No'); ?></td>
+                                            <td><?php echo ($row['type'] == 0 ? 'Single' : 'Multiple'); ?></td>
+                                            <td><img src="assets/img/icons8-image-96.png" width="40px"></td>
+                                            <!-- <td><?php //echo $row['icon']; 
+                                                        ?></td> -->
+                                            <td>
+                                                <a href="propertyamenities-edit.php?edit=<?php echo $row['id']; ?>" class="btn btn-status-positive btn-rounded btn-icon" title="Edit"><i class="fas fa-sm fa-edit"></i></a>
+                                                <a href="propertyamenities-list.php?id=<?php echo $row['id']; ?>" class="btn btn-primary btn-rounded btn-icon" title="Amenities List"><i class="fas fa-sm fa-list"></i></a>
+                                                <a href="#del<?php echo $row['id']; ?>" data-toggle="modal" class="btn btn-danger btn-rounded btn-icon" class="btn btn-status-negative btn-rounded btn-icon" title="Delete"><i class="fas fa-sm fa-times"></i></a>
+                                            </td>
+                                        </tr>
+                                    <?php
+                                    }
+                                } else { ?>
+                                    <td colspan="3" style="text-align:center;color:red;">No Records Found</td>
                                 <?php
                                 }
-                            }else { ?>
-                                <td colspan="3" style="text-align:center;color:red;">No Records Found</td>
-                                <?php
-                            }
 
                                 ?>
                             </tbody>
@@ -159,7 +160,7 @@ include 'includes/sidenav.php';
                                     <input class="form-check-input" type="checkbox" name="chkShowInDetail" id="chkShowInDetail">
                                 </div>
                             </div>
-                            
+
                         </div>
                         <div class="row">
                             <div style="height:10px;"></div>
@@ -167,10 +168,10 @@ include 'includes/sidenav.php';
                             <div class="col-5">Multiple Choice</div>
                             <div class="col-2">
                                 <div class="form-check ">
-                                    <input class="form-check-input" type="checkbox" name="chkType" id="chkType" >
+                                    <input class="form-check-input" type="checkbox" name="chkType" id="chkType">
                                 </div>
                             </div>
-                           
+
                         </div>
                 </div>
             </div>

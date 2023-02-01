@@ -57,7 +57,7 @@ if (!isset($_SESSION['user'])) {
                                 <th>Title</th>
                                 <th>City</th>
                                 <th>Area</th>
-                                <th>Active</th>
+                                <th>Vacancy</th>
                                 <th width="20%">Action</th>
                             </thead>
                             <tbody>
@@ -74,10 +74,13 @@ if (!isset($_SESSION['user'])) {
                                             <td><?php echo $row['property_title']; ?></td>
                                             <td><?php echo $row['city']; ?></td>
                                             <td><?php echo $row['area']; ?></td>
-                                            <td><?php echo $row['active']; ?></td>
+                                            <td><a href="" data-toggle="modal" class="btn btn-primary btn-rounded btn-icon" class="btn btn-status-negative btn-rounded btn-icon" title="Vacancy"><i class="fas fa-sm fa-calendar"></i></a></td>
                                             <td>
+                                            
+
                                                 <a href="" class="btn btn-status-positive btn-rounded btn-icon" title="Edit"><i class="fas fa-sm fa-edit"></i></a>
                                                 <a href="" data-toggle="modal" class="btn btn-danger btn-rounded btn-icon" class="btn btn-status-negative btn-rounded btn-icon" title="Delete"><i class="fas fa-sm fa-times"></i></a>
+
                                             </td>
                                         </tr>
                                     <?php

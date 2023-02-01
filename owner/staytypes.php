@@ -34,8 +34,11 @@ if (!isset($_SESSION['user'])) {
     }
 </style>
 
+`
 <link rel="stylesheet" href="css/multi-form.css">
-<script type="application/javascript" src="js/multi-form.js"></script>
+`<script type="application/javascript" src="js/multi-form.js"></script>
+`<script type="application/javascript" src="js/jquery.form.js"></script>
+<!-- `<script type="application/javascript" src="js/jquery.min.js"></script> -->
 
 <div id="layoutSidenav">
     <div id="layoutSidenav_content">
@@ -70,7 +73,8 @@ if (!isset($_SESSION['user'])) {
                     <p>Fill all form field to go to next step</p> -->
                                     <div class="row">
                                         <div class="col-md-12 mx-0">
-                                            <form id="msform">
+                                            <!-- <form id="msform"> -->
+                                            <section>
                                                 <!-- progressbar -->
                                                 <ul id="progressbar">
                                                     <li class="active" id="account"><strong>Basic</strong></li>
@@ -83,115 +87,165 @@ if (!isset($_SESSION['user'])) {
                                                     <li id="confirm"><strong>Finish</strong></li>
                                                 </ul>
                                                 <!-- fieldsets -->
-                                                <fieldset>
-                                                    <div class="form-card">
-                                                        <h2 class="fs-title">Basic Information</h2>
-                                                        <div class="row">
-                                                            <div class="col-8">
-                                                                <input type="text" name="txtStaytypeName" placeholder="Staytype name" />
-                                                            </div>
-                                                            <div class="col-4">
-                                                                <select class="list-dt" id="cmbStaytypeCategory" name="cmbStaytypeCategory">
-                                                                    <option selected>Stay Type</option>
-                                                                    <option>Hostel</option>
-                                                                    <option>Paying Guest</option>
-                                                                    <option>Apartment</option>
-                                                                    <option>Guest House</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-6">
-                                                                <input type="text" name="txtAddress1" placeholder="Address" />
-                                                            </div>
-                                                            <div class="col-6">
-                                                                <input type="text" name="txtAddress2" placeholder="Address 2" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
+                                                <fieldset name="FS1">
+                                                    <form action="" id="form1" name="Form1">
+                                                        <div class="form-card">
+                                                            <h2 class="fs-title">Basic Information</h2>
+                                                            <div class="row">
+                                                                <div class="col-8">
+                                                                    <input type="text" name="txtStaytypeName" placeholder="Staytype name" />
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <select class="list-dt" id="cmbStaytypeCategory" name="cmbStaytypeCategory">
+                                                                        <option selected>Select...</option>
+                                                                        <?php
+                                                                        $selectSQL = "SELECT * FROM property_category ORDER BY sortorder";
 
-                                                            <div class="col-3">
-                                                                <select class="list-dt" id="cmbState" name="cmbState">
-                                                                    <option selected>State</option>
-                                                                    <option>Tamilnadu</option>
-                                                                    <option>Karnataka</option>
-                                                                    <option>Kerala</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="col-3">
-                                                                <select class="list-dt" id="cmbCity" name="cmbCity">
-                                                                    <option selected>City</option>
-                                                                    <option>Chennai</option>
-                                                                    <option>Bangalore</option>
-                                                                    <option>Coimbatore</option>
-                                                                    <option>Trivandrum</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="col-3">
-                                                                <select class="list-dt" id="cmbArea" name="cmbArea">
-                                                                    <option selected>Area</option>
-                                                                    <option>Annanagar</option>
-                                                                    <option>Kilpauk</option>
-                                                                    <option>J P Nagar</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="col-3">
-                                                                <input type="text" name="txtPincode" placeholder="Pincode" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-3">
-                                                                <input type="text" name="txtPhone" placeholder="Phone" />
-                                                            </div>
-                                                            <div class="col-3">
-                                                                <input type="text" name="txtAlternatePhone" placeholder="Alternate Phone" />
-                                                            </div>
-                                                            <div class="col-3">
-                                                                <select class="list-dt" id="cmbExclusivity" name="cmbExclusivity">
-                                                                    <option selected>Exclusivity</option>
-                                                                    <option>NEET Aspirants</option>
-                                                                    <option>Working People</option>
-                                                                    <option>IT Professionals</option>
-                                                                    <option>Only Students</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="col-3">
-                                                                <select class="list-dt" id="cmbAccomodationPref" name="cmbAccomodationPref">
-                                                                    <option selected>Preferred Guests</option>
-                                                                    <option>Male Only</option>
-                                                                    <option>Female Only</option>
-                                                                    <option>Male & Female</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-8">
-                                                                <textarea name="" id="" cols="30" rows="3">Salient Features</textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <input type="button" name="next" class="next action-button" value="Next Step" />
-                                                </fieldset>
-                                                <fieldset>
-                                                    <div class="form-card">
-                                                        <h2 class="fs-title">Amenities Information</h2>
-                                                        <div class="row">
-                                                            <div class="col-6">
-                                                                Select Property Level Amenities<br><br>
-                                                                <div class="row">
-                                                                    <select class="list-dt" id="cmbAccomodationPref" name="cmbAccomodationPref">
-                                                                        <option selected>Select Amenity</option>
-                                                                        <option>Nearby Places</option>
-                                                                        <option>Internet</option>
-                                                                        <option>Food Packing</option>
+                                                                        $result = mysqli_query($connection, $selectSQL);
+
+                                                                        if (mysqli_num_rows($result) > 0) {
+
+                                                                            while ($row = mysqli_fetch_array($result)) {
+                                                                        ?>
+                                                                                <option><?php echo $row['categoryname']; ?></option>
+                                                                            <?php
+                                                                            }
+                                                                        } else { ?>
+                                                                            <td colspan="3" style="text-align:center;color:red;">No Records Found</td>
+                                                                        <?php
+                                                                        }
+                                                                        ?>
                                                                     </select>
                                                                 </div>
-                                                                <select class="list-dt" id="cmbAccomodationPref" name="cmbAccomodationPref">
-                                                                    <option selected>Select Choices</option>
-                                                                    <option>Stationary Stores</option>
-                                                                    <option>Bus Stand</option>
-                                                                    <option>Shankar IAS Academy</option>
-                                                                </select>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-6">
+                                                                    <input type="text" name="txtAddress1" placeholder="Address" />
+                                                                </div>
+                                                                <div class="col-6">
+                                                                    <input type="text" name="txtAddress2" placeholder="Address 2" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+
+                                                                <div class="col-3">
+                                                                    <select class="list-dt" id="cmbLocation" name="cmbLocation">
+                                                                        <option selected>Select Location...</option>
+                                                                        <?php
+                                                                        $selectSQL = "SELECT * FROM locations";
+
+                                                                        $result = mysqli_query($connection, $selectSQL);
+
+                                                                        if (mysqli_num_rows($result) > 0) {
+
+                                                                            while ($row = mysqli_fetch_array($result)) {
+                                                                        ?>
+                                                                                <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
+                                                                            <?php
+                                                                            }
+                                                                        } else { ?>
+                                                                            <td colspan="3" style="text-align:center;color:red;">No Records Found</td>
+                                                                        <?php
+                                                                        }
+                                                                        ?>
+                                                                    </select>
+                                                                </div>
+                                                                <!-- Area Dropdown - Dependent on Location Selection -->
+                                                                <!-- Area Dropdown - Dependent on Location Selection -->
+                                                                <div class="col-3">
+                                                                    <select class="list-dt" id="cmbArea" name="cmbArea">
+                                                                        <option value='0' selected>Select Area</option>
+
+                                                                    </select>
+                                                                </div>
+                                                                <!-- END Area Dropdown - Dependent on Location Selection -->
+                                                                <div class="col-3">
+                                                                    <input type="text" name="txtPincode" placeholder="Pincode" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-3">
+                                                                    <input type="text" name="txtPhone" placeholder="Phone" />
+                                                                </div>
+                                                                <div class="col-3">
+                                                                    <input type="text" name="txtAlternatePhone" placeholder="Alternate Phone" />
+                                                                </div>
+                                                                <div class="col-3">
+                                                                    <select class="list-dt" id="cmbExclusivity" name="cmbExclusivity">
+                                                                        <option selected>Select Exclusivity...</option>
+                                                                        <?php
+                                                                        $selectSQL = "SELECT * FROM exclusivity";
+
+                                                                        $result = mysqli_query($connection, $selectSQL);
+
+                                                                        if (mysqli_num_rows($result) > 0) {
+
+                                                                            while ($row = mysqli_fetch_array($result)) {
+                                                                        ?>
+                                                                                <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
+                                                                            <?php
+                                                                            }
+                                                                        } else { ?>
+                                                                            <td colspan="3" style="text-align:center;color:red;">No Records Found</td>
+                                                                        <?php
+                                                                        }
+                                                                        ?>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-8">
+                                                                    <textarea name="" id="" cols="30" rows="3">Salient Features</textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <input type="button" name="next" class="next action-button" value="Next Step" />
+                                                    </form>
+                                                </fieldset>
+                                                <fieldset>
+                                                    <form action="">
+                                                        <div class="form-card">
+                                                            <h2 class="fs-title">Amenities Information</h2>
+                                                            <div class="row">
+                                                                <!-- <div class="col-8"> -->
+                                                                Select Property Level Amenities<br><br>
+                                                                <div class="row mb-5">
+                                                                    <div class="col-3">
+                                                                        <select class="list-dt" id="cmbAmenity" name="cmbAmenity" style="width:50%!important">
+                                                                            <option selected>Select Amenity ...</option>
+                                                                            <?php
+                                                                            $selectSQL = "SELECT * FROM amenities where level=0";
+
+                                                                            $result = mysqli_query($connection, $selectSQL);
+
+                                                                            if (mysqli_num_rows($result) > 0) {
+
+                                                                                while ($row = mysqli_fetch_array($result)) {
+                                                                            ?>
+                                                                                    <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
+                                                                                <?php
+                                                                                }
+                                                                            } else { ?>
+                                                                                <td colspan="3" style="text-align:center;color:red;">No Records Found</td>
+                                                                            <?php
+                                                                            }
+                                                                            ?>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-4">
+                                                                        <select class="list-dt" id="cmbAmenityList" name="cmbAmenityList" style="width:100%!important" multiple>
+                                                                            <option value='0' selected>Select Amenity List1...</option>
+
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-3">
+                                                                        <input type="text" placeholder="value" hidden>
+                                                                    </div>
+                                                                    <div class="col-2">
+                                                                        <input type="button" class="btn btn-primary" style="width:50px!important" value="Add">
+                                                                    </div>
+                                                                </div>
+
                                                                 <table>
                                                                     <tr>
                                                                         <td>Amenity</td>
@@ -229,183 +283,358 @@ if (!isset($_SESSION['user'])) {
                                                                         <td style="text-align:center;"><span style="color:red;">X</span></td>
                                                                     </tr>
                                                                 </table>
-                                                            </div>
+                                                                <!-- </div> -->
 
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                                                    <input type="button" name="next" class="next action-button" value="Next Step" />
+                                                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                                                        <input type="button" name="next" class="next action-button" value="Next Step" />
+                                                    </form>
                                                 </fieldset>
+
+
                                                 <fieldset>
-                                                    <div class="form-card">
-                                                        <h2 class="fs-title">Media Information</h2>
-                                                        Select Image Files to Upload:
-                                                        <div class="row">
-                                                            <div class="col-3">
-                                                                <input type="file" name="files[]" multiple>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-3">
-                                                                <input type="submit" name="submit" value="UPLOAD">
-                                                            </div>
-                                                        </div>
-                                                        Select Video Files to Upload:
-                                                        <div class="row">
-                                                            <div class="col-3">
-                                                                <input type="file" name="files[]" multiple>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-3">
-                                                                <input type="submit" name="submit" value="UPLOAD">
-                                                            </div>
-                                                        </div>
+                                                    <form method="post" id="uploadForm" name="uploadForm" enctype="multipart/form-data" action="img-upload.php">
+                                                        <div class="form-card">
+                                                            <script>
+                                                                $(function() {
+                                                                    $('#uploadForm').ajaxForm({
+                                                                        target: '#imagesPreview',
+                                                                        beforeSubmit: function() {
+                                                                            // $('#uploadStatus').html('<img src="css/uploading.gif" />');
+                                                                        },
+                                                                        success: function() {
+                                                                            $('#images').val('');
+                                                                            $('#uploadStatus').html('');
+                                                                        },
+                                                                        error: function() {
+                                                                            $('#uploadStatus').html('<p>Upload failed! Please try again.</p>');
+                                                                        }
+                                                                    });
+                                                                });
+                                                            </script>
+
+                                                            <style>
+                                                                .col-img {
+                                                                    /* width:30px; */
+                                                                    float: left;
+                                                                }
+
+                                                                .col-img img {
+                                                                    max-height: 80px;
+                                                                    height: 70px;
+                                                                    object-fit: contain;
+                                                                    padding: 5px;
+                                                                    border: 1px solid #d9d9d9;
+                                                                }
+
+                                                                .img-wrap {
+                                                                    position: relative;
+                                                                    display: inline-block;
+                                                                    /* border: 1px red solid; */
+                                                                    font-size: 0;
+                                                                }
+
+                                                                .img-wrap .close {
+                                                                    position: absolute;
+                                                                    top: 2px;
+                                                                    right: 2px;
+                                                                    z-index: 100;
+                                                                    background-color: red;
+                                                                    padding: 2px 3px 5px;
+                                                                    color: #000;
+                                                                    font-weight: bold;
+                                                                    cursor: pointer;
+                                                                    opacity: .2;
+                                                                    text-align: center;
+                                                                    font-size: 22px;
+                                                                    line-height: 10px;
+                                                                    border-radius: 50%;
+                                                                }
+
+                                                                .img-wrap:hover .close {
+                                                                    opacity: 1;
+                                                                }
+
+                                                                .uploadStatus {
+                                                                    font-size: 12px;
+                                                                    color: red !important;
+                                                                }
+                                                            </style>
+                                                            <h2 class="fs-title">Media Information</h2>
+
+                                                            Select Image Files to Upload (Max : 5):
+                                                            <div class="row">
+                                                                <div class="col-3">
+                                                                    <!-- Upload controls column -->
+                                                                    <div class="row">
+                                                                        <!-- <div class="col-3"> -->
+                                                                        <input type="file" name="images[]" id="images" multiple>
+                                                                        <!-- </div> -->
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <!-- <div class="col-3"> -->
+                                                                        <input type="submit" name="imageUpload" id="imageUpload" value="UPLOAD">
+                                                                        <!-- display upload status -->
+                                                                        <div id="uploadStatus" style="color:red"></div>
+                                                                        <div class="gallery" id="imagesPreview"></div>
+
+                                                                        <!-- </div> -->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-8">
+
+                                                                    <!-- Gallery Column -->
+                                                                    <?PHP
+                                                                    // Get image data from database
+                                                                    $result = $connection->query("SELECT img_file_name FROM property_images ORDER BY id DESC");
+                                                                    $noOfImages = $result->num_rows;
+                                                                    echo "images : " . $noOfImages;
+                                                                    ?>
+
+                                                                    <?php
+                                                                    if ($noOfImages > 0) {
+                                                                        if ($noOfImages < 6) { ?>
+                                                                            <div class="gallery">
+
+                                                                                <?php while ($row = $result->fetch_assoc()) { ?>
+
+                                                                                    <div class="col-img img-wrap">
+                                                                                        <span class="close" title="delete">&times;</span>
+                                                                                        <img src="<?php echo 'uploads/' . $row['img_file_name']; ?>" />
+                                                                                    </div>
 
 
-                                                    </div>
-                                                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                                                    <input type="button" name="next" class="next action-button" value="Next Step" />
+                                                                                <?php } ?>
+
+                                                                            </div>
+                                                                        <?php } else {
+                                                                            //Max image numbers reached.
+                                                                            echo "<script>document.getElementById('imageUpload').hidden = true;</script>";
+                                                                        }
+                                                                    } else { ?>
+                                                                        <p class="status error">Image(s) not found...</p>
+                                                                    <?php }
+                                                                    if ($noOfImages >= 5) {
+                                                                        //Max image uploaded. cannot upload more.
+                                                                        echo "<script>document.getElementById('imageUpload').hidden = true;</script>";
+                                                                        echo "<script>document.getElementById('uploadStatus').innerHTML = 'Max Files Reached';</script>";
+                                                                    }
+                                                                    ?>
+
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                    <form method="post" id="videoUploadForm" name="videoUploadForm" enctype="multipart/form-data" action="img-upload.php">
+                                                        <div class="form-card">
+                                                            <script>
+                                                                $(function() {
+                                                                    $('#videoUploadForm').ajaxForm({
+                                                                        target: '#videoPreview',
+                                                                        beforeSubmit: function() {
+                                                                            // $('#uploadStatus').html('<img src="css/uploading.gif" />');
+                                                                        },
+                                                                        success: function() {
+                                                                            $('#videoFile').val('');
+                                                                            $('#uploadStatus').html('');
+                                                                        },
+                                                                        error: function() {
+                                                                            $('#uploadStatus').html('<p>Upload failed! Please try again.</p>');
+                                                                        }
+                                                                    });
+                                                                });
+                                                            </script>
+                                                            <P class="mb-2"> Select Video Files to Upload (One video only):</P>
+                                                            <div class="row">
+                                                                <div class="col-3">
+                                                                    <div class="row">
+                                                                        <input type="file" accept="video/mp4" name="videoFile" id="videoFile">
+                                                                    </div>
+
+                                                                    <div class="row">
+                                                                        <input type="submit" name="btnVideoUpload" id="btnVideoUpload" value="UPLOAD">
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="col-8 float-start">
+                                                                    <div id="uploadStatus" style="color:red"></div>
+                                                                    <div class="gallery" id="videoPreview"></div>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                                                        <input type="button" name="next" class="next action-button" value="Next Step" />
+                                                    </form>
                                                 </fieldset>
+
+
                                                 <fieldset>
-                                                    <div class="form-card">
-                                                        <h2 class="fs-title">Room Information</h2>
-                                                        <p>Create Rooms</p>
-                                                        <div class="row">
-                                                            <div class="col-3">
-                                                                <select class="list-dt" id="cmbAccomodationPref" name="cmbAccomodationPref">
-                                                                    <option selected>Select Amenity</option>
-                                                                    <option>Nearby Places</option>
-                                                                    <option>Internet</option>
-                                                                    <option>Food Packing</option>
-                                                                </select>
+                                                    <form action="">
+                                                        <div class="form-card">
+                                                            <h2 class="fs-title">Room Information</h2>
+                                                            <p>Create Rooms</p>
+                                                            <div class="row mb-2">
+                                                                <div class="col-6">
+                                                                    <input type="text" placeholder="Room Name">
+                                                                </div>
                                                             </div>
-                                                            <div class="col-3">
-                                                                <select class="list-dt" id="cmbAccomodationPref" name="cmbAccomodationPref">
-                                                                    <option selected>Select Choices</option>
-                                                                    <option>Nearby Places</option>
-                                                                    <option>Internet</option>
-                                                                    <option>Food Packing</option>
-                                                                </select>
+                                                            <div class="row">
+                                                                <div class="col-3">
+                                                                    <select class="list-dt" id="cmbRoomAmenity" name="cmbRoomAmenity">
+                                                                        <option selected>Select Amenity ...</option>
+                                                                        <?php
+                                                                        $selectSQL = "SELECT * FROM amenities where level=1";
+
+                                                                        $result = mysqli_query($connection, $selectSQL);
+
+                                                                        if (mysqli_num_rows($result) > 0) {
+
+                                                                            while ($row = mysqli_fetch_array($result)) {
+                                                                        ?>
+                                                                                <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
+                                                                            <?php
+                                                                            }
+                                                                        } else { ?>
+                                                                            <td colspan="3" style="text-align:center;color:red;">No Records Found</td>
+                                                                        <?php
+                                                                        }
+                                                                        ?>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-3">
+                                                                    <select class="list-dt" id="cmbRoomAmenityList" name="cmbRoomAmenityList">
+                                                                        <option selected>Select Choices</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-3">
+                                                                    <input type="text" name="txtRoomAmenityValue" id="txtRoomAmenityValue" placeholder="Value" hidden/>
+                                                                </div>
+                                                                <div class="col-2">
+                                                                <input type="button" class="btn btn-primary" style="width:50px!important" value="Add">
+                                                                </div>
                                                             </div>
-                                                            <div class="col-3">
-                                                                <input type="text" name="txtAvalue" placeholder="Value" />
-                                                            </div>
-                                                            <div class="col-2">
-                                                                <a href="">Add</a>
+
+                                                            <div class="row ">
+                                                                <p>Selected Room Amenities</p>
+                                                                <table class="table-worktime">
+                                                                    <tr>
+                                                                        <td>Amenity</td>
+                                                                        <td>Choices</td>
+                                                                        <td>Value</td>
+                                                                        <td>Action</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Nearby Places</td>
+                                                                        <td>Railway Station</td>
+                                                                        <td></td>
+                                                                        <td style="text-align:center;"><span style="color:red;">X</span></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Nearby Places</td>
+                                                                        <td>Restaurant</td>
+                                                                        <td></td>
+                                                                        <td style="text-align:center;"><span style="color:red;">X</span></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Parking</td>
+                                                                        <td>Bike Parking</td>
+                                                                        <td></td>
+                                                                        <td style="text-align:center;"><span style="color:red;">X</span></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Internet</td>
+                                                                        <td>Broadband</td>
+                                                                        <td>100 Mbps</td>
+                                                                        <td style="text-align:center;"><span style="color:red;">X</span></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Food Packing</td>
+                                                                        <td>Lunch Only</td>
+                                                                        <td></td>
+                                                                        <td style="text-align:center;"><span style="color:red;">X</span></td>
+                                                                    </tr>
+                                                                </table>
                                                             </div>
                                                         </div>
+                                                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                                                        <input type="button" name="next" class="next action-button" value="Next Step" />
+                                                    </form>
+                                                </fieldset>
 
-                                                        <div class="row ">
-                                                            <p>Selected Room Amenities</p>
-                                                            <table class="table-worktime">
+                                                <fieldset>
+                                                    <form action="">
+                                                        <div class="form-card">
+                                                            <h2 class="fs-title">Work Timings</h2>
+                                                            <table>
                                                                 <tr>
-                                                                    <td>Amenity</td>
-                                                                    <td>Choices</td>
-                                                                    <td>Value</td>
-                                                                    <td>Action</td>
+                                                                    <td width="50%">Weekday</td>
+                                                                    <td>Start Time</td>
+                                                                    <td>End Time</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>Nearby Places</td>
-                                                                    <td>Railway Station</td>
-                                                                    <td></td>
-                                                                    <td style="text-align:center;"><span style="color:red;">X</span></td>
+                                                                    <td>Monday</td>
+                                                                    <td><input type="time" class="txtMonTime" style="border:none;margin-bottom:1px;" /></td>
+                                                                    <td><input type="time" class="txtMonTime" style="border:none;margin-bottom:1px;" /></td>
+                                                                    <!-- <td><input type="time" id="txtMonTime" /></td> -->
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>Nearby Places</td>
-                                                                    <td>Restaurant</td>
-                                                                    <td></td>
-                                                                    <td style="text-align:center;"><span style="color:red;">X</span></td>
+                                                                    <td>Tuesday</td>
+                                                                    <td><input type="time" class="txtMonTime" style="border:none;margin-bottom:1px;" /></td>
+                                                                    <td><input type="time" class="txtMonTime" style="border:none;margin-bottom:1px;" /></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>Parking</td>
-                                                                    <td>Bike Parking</td>
-                                                                    <td></td>
-                                                                    <td style="text-align:center;"><span style="color:red;">X</span></td>
+                                                                    <td>Wednesday</td>
+                                                                    <td><input type="time" class="txtMonTime" style="border:none;margin-bottom:1px;" /></td>
+                                                                    <td><input type="time" class="txtMonTime" style="border:none;margin-bottom:1px;" /></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>Internet</td>
-                                                                    <td>Broadband</td>
-                                                                    <td>100 Mbps</td>
-                                                                    <td style="text-align:center;"><span style="color:red;">X</span></td>
+                                                                    <td>Thursday</td>
+                                                                    <td><input type="time" class="txtMonTime" style="border:none;margin-bottom:1px;" /></td>
+                                                                    <td><input type="time" class="txtMonTime" style="border:none;margin-bottom:1px;" /></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>Food Packing</td>
-                                                                    <td>Lunch Only</td>
-                                                                    <td></td>
-                                                                    <td style="text-align:center;"><span style="color:red;">X</span></td>
+                                                                    <td>Friday</td>
+                                                                    <td><input type="time" class="txtMonTime" style="border:none;margin-bottom:1px;" /></td>
+                                                                    <td><input type="time" class="txtMonTime" style="border:none;margin-bottom:1px;" /></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Saturday</td>
+                                                                    <td><input type="time" class="txtMonTime" style="border:none;margin-bottom:1px;" /></td>
+                                                                    <td><input type="time" class="txtMonTime" style="border:none;margin-bottom:1px;" /></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Sunday</td>
+                                                                    <td><input type="time" class="txtMonTime" style="border:none;margin-bottom:1px;" /></td>
+                                                                    <td><input type="time" class="txtMonTime" style="border:none;margin-bottom:1px;" /></td>
                                                                 </tr>
                                                             </table>
+
+
                                                         </div>
-                                                    </div>
-                                                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                                                    <input type="button" name="next" class="next action-button" value="Next Step" />
+                                                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                                                        <input type="button" name="next" class="next action-button" value="Next Step" />
+                                                    </form>
                                                 </fieldset>
                                                 <fieldset>
-                                                    <div class="form-card">
-                                                        <h2 class="fs-title">Work Timings</h2>
-                                                        <table>
-                                                            <tr>
-                                                                <td width="50%">Weekday</td>
-                                                                <td>Start Time</td>
-                                                                <td>End Time</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Monday</td>
-                                                                <td><input type="time" class="txtMonTime" style="border:none;margin-bottom:1px;" /></td>
-                                                                <td><input type="time" class="txtMonTime" style="border:none;margin-bottom:1px;" /></td>
-                                                                <!-- <td><input type="time" id="txtMonTime" /></td> -->
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Tuesday</td>
-                                                                <td><input type="time" class="txtMonTime" style="border:none;margin-bottom:1px;" /></td>
-                                                                <td><input type="time" class="txtMonTime" style="border:none;margin-bottom:1px;" /></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Wednesday</td>
-                                                                <td><input type="time" class="txtMonTime" style="border:none;margin-bottom:1px;" /></td>
-                                                                <td><input type="time" class="txtMonTime" style="border:none;margin-bottom:1px;" /></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Thursday</td>
-                                                                <td><input type="time" class="txtMonTime" style="border:none;margin-bottom:1px;" /></td>
-                                                                <td><input type="time" class="txtMonTime" style="border:none;margin-bottom:1px;" /></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Friday</td>
-                                                                <td><input type="time" class="txtMonTime" style="border:none;margin-bottom:1px;" /></td>
-                                                                <td><input type="time" class="txtMonTime" style="border:none;margin-bottom:1px;" /></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Saturday</td>
-                                                                <td><input type="time" class="txtMonTime" style="border:none;margin-bottom:1px;" /></td>
-                                                                <td><input type="time" class="txtMonTime" style="border:none;margin-bottom:1px;" /></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Sunday</td>
-                                                                <td><input type="time" class="txtMonTime" style="border:none;margin-bottom:1px;" /></td>
-                                                                <td><input type="time" class="txtMonTime" style="border:none;margin-bottom:1px;" /></td>
-                                                            </tr>
-                                                        </table>
-
-
-                                                    </div>
-                                                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                                                    <input type="button" name="next" class="next action-button" value="Next Step" />
-                                                </fieldset>
-                                                <fieldset>
-                                                    <div class="form-card">
-                                                        <h2 class="fs-title">Terms</h2>
-                                                        <textarea name="" id="tarTermas" cols="30" rows="10">Enter Terms</textarea>
-                                                    </div>
-                                                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                                                    <input type="button" name="next" class="next action-button" value="Next Step" />
+                                                    <form action="">
+                                                        <div class="form-card">
+                                                            <h2 class="fs-title">Terms</h2>
+                                                            <textarea name="" id="tarTermas" cols="30" rows="10">Enter Terms</textarea>
+                                                        </div>
+                                                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                                                        <input type="button" name="next" class="next action-button" value="Next Step" />
+                                                    </form>
                                                 </fieldset>
 
                                                 <fieldset>
-                                                    <div class="form-card text-left">
-                                                        <h2 class="fs-title">Acceptance</h2>
-                                                        <!-- <div class="radio-group">
+                                                    <form action="">
+                                                        <div class="form-card text-left">
+                                                            <h2 class="fs-title">Acceptance</h2>
+                                                            <!-- <div class="radio-group">
                                                             <div class='radio' data-value="credit"><img src="https://i.imgur.com/XzOzVHZ.jpg" width="200px" height="100px">
                                                             </div>
                                                             <div class='radio' data-value="paypal"><img src="https://i.imgur.com/jXjwZlj.jpg" width="200px" height="100px">
@@ -424,7 +653,7 @@ if (!isset($_SESSION['user'])) {
                                                                 <input type="password" name="cvcpwd" placeholder="***" />
                                                             </div>
                                                         </div>-->
-                                                        <!-- <div class="row">
+                                                            <!-- <div class="row">
                                                             <div class="col-3">
                                                                 <label class="pay">Expiry Date*</label>
                                                             </div>
@@ -449,17 +678,18 @@ if (!isset($_SESSION['user'])) {
                                                                 </select>
                                                             </div>
                                                         </div> -->
-                                                        <div class="row">
-                                                            <div class="col-1">
-                                                                <input type="checkbox">
-                                                            </div>
-                                                            <div class="col-6">
-                                                                <label for="vehicle1">We have read the Terms & Conditions of Stayteller and accept by checking this checkbox.</label><br>
+                                                            <div class="row">
+                                                                <div class="col-1">
+                                                                    <input type="checkbox">
+                                                                </div>
+                                                                <div class="col-6">
+                                                                    <label for="vehicle1">We have read the Terms & Conditions of Stayteller and accept by checking this checkbox.</label><br>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                                                    <input type="button" name="make_payment" class="next action-button" value="Confirm" />
+                                                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                                                        <input type="button" name="make_payment" class="next action-button" value="Submit" />
+                                                    </form>
                                                 </fieldset>
                                                 <fieldset>
                                                     <div class="form-card">
@@ -478,7 +708,8 @@ if (!isset($_SESSION['user'])) {
                                                         </div>
                                                     </div>
                                                 </fieldset>
-                                            </form>
+                                            </section>
+                                            <!-- </form> -->
                                         </div>
                                     </div>
                                 </div>
